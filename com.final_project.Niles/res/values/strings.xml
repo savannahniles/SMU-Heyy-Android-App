@@ -4,5 +4,41 @@
     <string name="app_name">com.final_project.Niles</string>
     <string name="action_settings">Developer: Savannah Niles</string>
     <string name="hello_world">Hello world!</string>
+    <string-array name="posts">
+        <item>independent study!</item>
+        <item>Barbara Kincaid? The most stylish.</item>
+        <item>My business law professor has really good hair.</item>
+        <item>The heat in this lab is up to a thousand degrees. Don\'t work in here. Go to the other one.</item>
+        <item>Mac\'s place delivers, righttt???</item>
+        <item>New Daft Punk album....Holy fuck.</item>
+        <item>Industrial cleaning crew currently vacuuming up the water damage. Cause: A resident\'s girlfriend hung something from a hanger on a sprinkler head. About half of 2nd floor Morrison (community side) and a few rooms on first floor have significant water damage.</item>
+        <item>I wish people had a mute button.</item>
+        <item>Sucks be in MoMac right now, how much would it suck to have your computer/books/room ruined simultaneously by water damage</item>
+        <item>Collabing is happening.</item>
+    </string-array>
+        <string-array name="places">
+        <item>Caruth 267</item>
+        <item>Cox</item>
+        <item>Cox</item>
+        <item>Embrey</item>
+        <item>D11</item>
+        <item>Meadows</item>
+        <item>MoMac</item>
+        <item>Mac\'s Place</item>
+        <item>VS</item>
+        <item>B620</item>
+    </string-array>
+        <string-array name="times">
+        <item>4/15/2013 15:05:12</item>
+        <item>4/15/2013 15:05:12</item>
+        <item>4/15/2013 15:05:12</item>
+        <item>4/15/2013 15:05:12</item>
+        <item>4/15/2013 15:05:12</item>
+        <item>4/15/2013 15:05:12</item>
+        <item>4/15/2013 15:05:12</item>
+        <item>4/15/2013 15:05:12</item>
+        <item>4/15/2013 15:05:12</item>
+        <item>4/15/2013 15:05:12</item>
+    </string-array>
 
 </resources>

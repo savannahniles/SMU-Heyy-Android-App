@@ -1,15 +1,22 @@
 package com.example.com.final_project.niles;
 
+import android.app.ListActivity;
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.Menu;
+import android.widget.ArrayAdapter;
 
-public class MainActivity extends Activity {
+public class MainActivity extends ListActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		
+		 // storing string resources into Array
+        String[] posts = getResources().getStringArray(R.array.posts);
+         
+        // Binding resources Array to ListAdapter
+        this.setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item, R.id.label, posts));
+         
 	}
 
 	@Override
