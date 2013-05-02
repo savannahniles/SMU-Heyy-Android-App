@@ -15,9 +15,9 @@ public class SingleListItem extends Activity{
          
         Intent i = getIntent();
         // getting attached intent data
-        String product = i.getStringExtra("product");
+        String post = i.getStringExtra("posts");
         // displaying selected product name
-        txtProduct.setText(product);
+        txtProduct.setText(post);
          
     }
 }
