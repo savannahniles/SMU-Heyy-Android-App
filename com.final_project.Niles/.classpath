@@ -4,5 +4,8 @@
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry exported="true" kind="lib" path="/Users/SavannahNiles/Android/sdk/extras/google/google_play_services/libproject/google-play-services_lib/libs/google-play-services.jar"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK/google-play-services_lib"/>
+	<classpathentry kind="lib" path="/Users/SavannahNiles/Android/sdk/extras/google/google_play_services/libproject/google-play-services_lib/bin/google-play-services_lib.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
