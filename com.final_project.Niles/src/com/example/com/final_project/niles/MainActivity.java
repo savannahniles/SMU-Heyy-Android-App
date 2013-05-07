@@ -18,7 +18,7 @@ public class MainActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 		
 		 // storing string resources into Array
-        String[] posts = getResources().getStringArray(R.array.posts);
+        final String[] posts = getResources().getStringArray(R.array.posts);
          
         // Binding resources Array to ListAdapter
         this.setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item, R.id.label, posts));
@@ -31,7 +31,7 @@ public class MainActivity extends ListActivity {
               int position, long id) {
                
               // selected item 
-              String post = ((TextView) view).getText().toString();
+              String post = posts[position];
                
               // Launching new Activity on selecting single List Item
               Intent i = new Intent(getApplicationContext(), SingleListItem.class);
