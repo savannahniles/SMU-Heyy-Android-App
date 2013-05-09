@@ -14,10 +14,12 @@ public class PostJSONparser {
 	// Receives a JSONObject and returns a list
 	public List<HashMap<String,Object>> parse(JSONObject jObject){
 
+		JSONObject jPostObject = null;
 		JSONArray jPostArray = null;
 		try {
 			// Retrieves all the elements in the 'entry' array
-jPostArray = jObject.getJSONArray("entry");
+jPostObject = jObject.getJSONObject("feed");
+jPostArray = jPostObject.getJSONArray("entry");
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}

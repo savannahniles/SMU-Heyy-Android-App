@@ -19,6 +19,5 @@ public class SingleListItem extends MapActivity{
 	    MapView mapView = (MapView) findViewById(R.id.mapview);
 	    mapView.setBuiltInZoomControls(true);
 	    Log.i("SLN", "On Create of Activity 2");
-	    Log.i("SLN", getIntent().getExtras().getString("posts"));
 	}
 }

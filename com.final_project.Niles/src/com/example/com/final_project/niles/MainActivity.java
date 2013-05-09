@@ -27,11 +27,12 @@ import android.widget.SimpleAdapter;
 public class MainActivity extends ListActivity {
 	
 	ListView lv;
+	List<HashMap<String, Object>> mPostsList;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-				
+		
 		// URL to the JSON data
         String strUrl = "https://spreadsheets.google.com/feeds/list/0AjImsUF0T00udEU4NWZhVkdnY294REVuMzRPUGxoQ1E/od6/public/values?alt=json";
         // Creating a new non-ui thread task to download json data
@@ -45,20 +46,22 @@ public class MainActivity extends ListActivity {
         // Binding resources Array to ListAdapter
         //this.setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item, R.id.label, posts));
         
-        //lv = getListView();
+        lv = getListView();
+        @SuppressWarnings("unused")
+		int x=5;
+        
         // Getting a reference to ListView of activity_main
-        lv = (ListView) findViewById(R.id.lv_posts);
+        //lv = (ListView) findViewById(R.id.lv_posts);
         
         // listening to single list item on click
         
         
-        /************
         lv.setOnItemClickListener(new OnItemClickListener() {
           public void onItemClick(AdapterView<?> parent, View view,
               int position, long id) {
                
               // selected item 
-              String post = posts[position];
+        	  HashMap<String, Object> post = mPostsList.get(position);
                
               // Launching new Activity on selecting single List Item
               Intent i = new Intent(getApplicationContext(), SingleListItem.class);
@@ -67,7 +70,7 @@ public class MainActivity extends ListActivity {
               startActivity(i);
              
           }
-        });*********/
+        });
         
 	}
 	
@@ -135,12 +138,12 @@ public class MainActivity extends ListActivity {
     }
     
     /** AsyncTask to parse json data and load ListView */
-    private class ListViewLoaderTask extends AsyncTask<String, Void, SimpleAdapter>{
+    private class ListViewLoaderTask extends AsyncTask<String, Void, List<HashMap<String, Object>>>{
  
         JSONObject jObject;
         // Doing the parsing of xml data in a non-ui thread
         @Override
-        protected SimpleAdapter doInBackground(String... strJson) {
+        protected List<HashMap<String, Object>> doInBackground(String... strJson) {
             try{
                 jObject = new JSONObject(strJson[0]);
                 PostJSONparser postJSONparser = new PostJSONparser();
@@ -162,23 +165,25 @@ public class MainActivity extends ListActivity {
                 Log.d("Exception",e.toString());
             }
  
+            return postsList;
+        }
+ 
+        /** Invoked by the Android on "doInBackground" is executed */
+        @Override
+        protected void onPostExecute(List<HashMap<String, Object>> p) {
+        	
+        	mPostsList = p;
+ 
             // Keys used in HashMap
             String[] from = { "timestamp","location","text"};
  
             // IDs of views in listview_layout
             int[] to = { R.id.tv_timestamp,R.id.tv_location,R.id.tv_text};
- 
+        	
             // Instantiating an adapter to store each items
             // R.layout.listview_layout defines the layout of each item
-            SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), postsList, R.layout.lv_layout, from, to);
- 
-            return adapter;
-        }
- 
-        /** Invoked by the Android on "doInBackground" is executed */
-        @Override
-        protected void onPostExecute(SimpleAdapter adapter) {
- 
+            SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), mPostsList, R.layout.lv_layout, from, to);
+        	
             // Setting adapter for the listview
             lv.setAdapter(adapter);
  
@@ -202,6 +207,7 @@ public class MainActivity extends ListActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
+		
 		return true;
 	}
 
