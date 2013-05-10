@@ -20,7 +20,6 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -62,11 +61,14 @@ public class MainActivity extends ListActivity {
                
               // selected item 
         	  HashMap<String, Object> post = mPostsList.get(position);
+        	  String loc = post.get("location").toString();
+        	  Log.i("SLN", loc);
+
                
               // Launching new Activity on selecting single List Item
               Intent i = new Intent(getApplicationContext(), SingleListItem.class);
               // sending data to new activity
-              i.putExtra("posts", post);
+              i.putExtra("location", loc);
               startActivity(i);
              
           }
@@ -122,7 +124,7 @@ public class MainActivity extends ListActivity {
             }catch(Exception e){
                 Log.d("Background Task",e.toString());
             }
-            Log.i("SLN", data);
+            //Log.i("SLN", data);
             return data;
         }
  

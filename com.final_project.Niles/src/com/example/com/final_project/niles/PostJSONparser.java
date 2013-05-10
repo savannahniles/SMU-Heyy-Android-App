@@ -35,7 +35,7 @@ jPostArray = jPostObject.getJSONArray("entry");
 		HashMap<String, Object> post = null;
 
 		// Taking each post, parses and adds to list object
-		for(int i=0; i<postCount;i++){
+		for(int i=postCount; i>0;i--){
 			try {
 				// Call getPost with post JSON object to parse the post
 				post = getPost((JSONObject)jPostArray.get(i));
